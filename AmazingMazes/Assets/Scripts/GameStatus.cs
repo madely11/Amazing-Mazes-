@@ -8,13 +8,14 @@ public class GameStatus : MonoBehaviour
     // todo el tiempo que dure la ejecución del programa.
     private static int mScore;
     private static int mTime;
-    private static int mName;
+    private static string mName;
 
     // Función miembro de tipo static y public para acceder al dato
     // miembro mScore.
     public static int Score { get => mScore; set => mScore = value; }
     public static int Time { get => mTime; set => mTime = value; }
-    public static int Name { get => mName; set => mName = value; }
+    public static string Name { get => mName; set => mName = value; }
+
 
 
     //// No se puede instanaciaar objetos de tipo GameStatus o GlobalClass,
@@ -29,6 +30,8 @@ public class GameStatus : MonoBehaviour
     {
         //Score = 0;
         GameStatus.Score = 0;
+        GameStatus.Time = 0;
+        GameStatus.Name = "";
     }
 
     // Update is called once per frame

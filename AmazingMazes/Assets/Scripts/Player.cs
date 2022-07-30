@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     // Crear un objeto de tipo AudioSource para manejar el sonido.
     public AudioSource tickSource;
 
+
     // Start is called before the first frame update
     void Start()
     {
