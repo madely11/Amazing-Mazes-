@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         
         // Inicializar la variable tiempo con el valor de 30 seg.
-        time = 30;
+        time = 100;
         gameOver = false;
 
         // Inicializar el valor de la variable global con cero.
@@ -110,11 +110,16 @@ public class Player : MonoBehaviour
             // Ejecutar el audio correspondiente.
             tickSource.Play();
         }
+
         if (obj.gameObject.tag == "bridge")
         {
             if (SceneManager.GetActiveScene().name.Equals("Scene1"))
             {
                 SceneManager.LoadScene("Scene2");
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("Scene2"))
+            {
+                SceneManager.LoadScene("Scene3");
             }
             else
             {
@@ -138,7 +143,7 @@ public class Player : MonoBehaviour
         GameStatus.Score = 0;
         //score = 0;
         // Inicializar el valor de la variable time con 30.
-        time = 30;
+        time = 100;
         // Cargar el Nivel de Escena de la Aplicación en la que se encuentra el 
         // player. 
         //Application.LoadLevel(Application.loadedLevelName);        
