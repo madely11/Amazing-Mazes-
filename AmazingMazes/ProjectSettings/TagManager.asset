@@ -6,6 +6,7 @@ TagManager:
   tags:
   - coin
   - bridge
+  - nick
   layers:
   - Default
   - TransparentFX
