@@ -148,7 +148,8 @@ public class Player : MonoBehaviour
         // Cargar el Nivel de Escena de la Aplicación en la que se encuentra el 
         // player. 
         //Application.LoadLevel(Application.loadedLevelName);        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
 }
