@@ -12,11 +12,14 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameStatus.Name = nickname.text;
+        //GameStatus.Name = nickname.text;
+        btnStart.onClick.AddListener(SaveNickname);
     }
 
     public void SaveNickname()
     {
         Debug.Log("NickName = " + nickname.text);
+        GameStatus.Name = nickname.text;
+        SceneManager.LoadScene("Scene1");
     }
 }

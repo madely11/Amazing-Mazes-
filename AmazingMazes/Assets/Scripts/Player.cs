@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         
         // Inicializar la variable tiempo con el valor de 30 seg.
-        time = 100;
+        time = 10;
         gameOver = false;
 
         // Inicializar el valor de la variable global con cero.
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
         // Obtener el componente de la fuente de audio del Player.
         tickSource = GetComponent<AudioSource>();
+        Debug.Log("NickName Player= " + GameStatus.Name);
     }
 
     // Update is called once per frame
