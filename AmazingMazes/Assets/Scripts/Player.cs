@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             {
                 SceneManager.LoadScene("Scene4");
             }
-            else
+            else if (SceneManager.GetActiveScene().name.Equals("Scene4"))
             {
                 gameOver = true;
                 // Hacer que el button btnReset sea visible.
@@ -128,5 +128,10 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("Scene0");
 
     }
+
+    /*public void saveGame()
+    {
+        PersonVo personVo = new PersonVo(1,"epe",10,"12");
+    }*/
 
 }
