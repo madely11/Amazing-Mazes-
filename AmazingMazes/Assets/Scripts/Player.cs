@@ -22,10 +22,6 @@ public class Player : MonoBehaviour
     public Button btnReset;
     // Una bandera de tipo bool para controlar la finalización del juego.
     private bool gameOver;
-    // Una variable de float para decrementar el valor del tiempo.
-    private float time;
-    // Una variable de tipo float para aumentar el valor del puntaje.
-    // private int score;
 
     // Crear un objeto de tipo AudioSource para manejar el sonido.
     public AudioSource tickSource;
@@ -37,13 +33,8 @@ public class Player : MonoBehaviour
         // Obtener el cuerpo rígido del Player.
         rb = GetComponent<Rigidbody>();
         
-        // Inicializar la variable tiempo con el valor de 30 seg.
-        time = 10;
         gameOver = false;
 
-        // Inicializar el valor de la variable global con cero.
-        //GameStatus.Score = 0;
-        //score = 0;
 
         // Cargando el valor de la variable global en la caja de texto 
         // txtScore.
@@ -53,7 +44,6 @@ public class Player : MonoBehaviour
 
         // Obtener el componente de la fuente de audio del Player.
         tickSource = GetComponent<AudioSource>();
-        Debug.Log("NickName Player= " + GameStatus.Name);
     }
 
     // Update is called once per frame
@@ -79,20 +69,12 @@ public class Player : MonoBehaviour
             // Asinar a la variable time lo que tiene menos el valor de 1 seg.
             // El valor de un segundo lo proporciona la función deltaTime del 
             // objeto Time.
-            time -= Time.deltaTime;
-            // Si el valor de la variable time es menor o igual que cero.
-            if (time <= 0.0f)
-            {
-                // Asignar a la variable time el valor de cero.
-                time = 0.0f;
-                // Asignar a la bandera gameOver el valor de true.
-                gameOver = true;
-                // Hacer que el button btnReset sea visible.
-                btnReset.gameObject.SetActive(true);
-            }
+            GameStatus.Time += Time.deltaTime;
+         
             // Actualizar el valor del tiempo en la caja de texto txtTime.
             // F2 significa formato con dos decimales.
-            txtTime.text = "Tiempo: " + time.ToString("F2");
+            //txtTime.text = "Tiempo: " + time.ToString("F2");
+            txtTime.text = "Tiempo: " + GameStatus.Time.ToString("F2");
         }
     }
 
@@ -123,34 +105,28 @@ public class Player : MonoBehaviour
             {
                 SceneManager.LoadScene("Scene3");
             }
+            else if (SceneManager.GetActiveScene().name.Equals("Scene3"))
+            {
+                SceneManager.LoadScene("Scene4");
+            }
             else
             {
-                SceneManager.LoadScene("Scene1");
+                gameOver = true;
+                // Hacer que el button btnReset sea visible.
+                btnReset.gameObject.SetActive(true);
             }
-
-            //if (Application.loadedLevelName == "Scene1")
-            //{
-            //    Application.LoadLevel("Scene2");
-            //}
-            //else
-            //{
-            //    Application.LoadLevel("Scene1");
-            //}
         }
+
     }
 
     public void ResetGame()
     {
         // Inicializar el valor de la variable global del puntaje con cero.
         GameStatus.Score = 0;
-        //score = 0;
-        // Inicializar el valor de la variable time con 30.
-        time = 100;
-        // Cargar el Nivel de Escena de la Aplicación en la que se encuentra el 
-        // player. 
-        //Application.LoadLevel(Application.loadedLevelName);        
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
+        GameStatus.Time = 0;
+        GameStatus.Name = "";
+        SceneManager.LoadScene("Scene0");
+
     }
 
 }

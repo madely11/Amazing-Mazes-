@@ -7,14 +7,14 @@ public class GameStatus : MonoBehaviour
     // El dato miembro mScore va a estar cargada en la memoria RAM
     // todo el tiempo que dure la ejecución del programa.
     private static int mScore;
-    private static int mTime;
+    private static float mTime;
     private static string mName;
 
     // Función miembro de tipo static y public para acceder al dato
     // miembro mScore.
     public static int Score { get => mScore; set => mScore = value; }
-    public static int Time { get => mTime; set => mTime = value; }
     public static string Name { get => mName; set => mName = value; }
+    public static float Time { get => mTime; set => mTime = value; }
 
 
 
