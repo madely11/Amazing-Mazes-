@@ -2,26 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Newtonsoft.Json;
+
 public class PersonVO : MonoBehaviour
 {
-    /*public PersonVO(int id, string name, int score, string time)
+    public PersonVO(string nickName, int score, string time)
     {
-        this.id = id;
-        this.name = name;
+        this.nickName = nickName;
         this.score = score;
         this.time = time;
     }
 
-    public int id { get; set; }
-    public string name { get; set; }
+    public string nickName { get; set; }
     public int score { get; set; }
     public string time { get; set; }
 
-    public string descerialize()
+    public string serialize()
     {
-        string json = JsonConvert.SerializeObject(this);
+        string json = "{\"nickName\":\"" + nickName + "\",\"score\":" + score + ",\"time\":\"" + time + "\"}";
         return json;
-    }*/
+    }
+
+
+    public string sayHi()
+    {
+        return "hi";
+    }
 
     // Start is called before the first frame update
     void Start()
