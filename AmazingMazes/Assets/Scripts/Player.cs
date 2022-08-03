@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class Player : MonoBehaviour
 {
     // Crear un atributo para controlar la fuerza y la velocidad del Player.
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
     // Crear un objeto de tipo AudioSource para manejar el sonido.
     public AudioSource tickSource;
 
+    //pablo
+    PersonBO personBO;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,9 @@ public class Player : MonoBehaviour
 
         // Obtener el componente de la fuente de audio del Player.
         tickSource = GetComponent<AudioSource>();
+
+        //test
+        personBO = new PersonBO();
     }
 
     // Update is called once per frame
@@ -109,9 +115,10 @@ public class Player : MonoBehaviour
             {
                 SceneManager.LoadScene("Scene4");
             }
-            else
+            else if (SceneManager.GetActiveScene().name.Equals("Scene4"))
             {
                 gameOver = true;
+                saveGame();
                 // Hacer que el button btnReset sea visible.
                 btnReset.gameObject.SetActive(true);
             }
@@ -127,6 +134,39 @@ public class Player : MonoBehaviour
         GameStatus.Name = "";
         SceneManager.LoadScene("Scene0");
 
+    }
+
+    public void saveGame()
+    {
+        personBO.writeFile();
+        /*
+        personVo = new PersonVO( GameStatus.Name, GameStatus.Score, GameStatus.Time.ToString());
+        Debug.Log("sale");
+        Debug.Log(personVo.nickName);
+        Debug.Log(personVo.score);
+        Debug.Log(personVo.time);
+
+        //string json = JsonConvert.SerializeObject(personVo);
+        string json = personVo.serialize();
+        Debug.Log("el string");
+        Debug.Log(json);
+
+        string path = "Resources/myHighScores.json";
+        System.IO.File.AppendAllText(path, json);
+
+        
+        StreamReader r = new StreamReader("Resources/test.json");
+        string jsonString = r.ReadLine();
+        while (jsonString != null)
+        {
+
+        }
+        string jsonString = r.ReadLine();
+        jsonString = r.ReadLine();
+        PersonVO m = JsonConvert.DeserializeObject<PersonVO>(jsonString);
+        Console.WriteLine("la persona 2>");
+        Console.WriteLine(m.descerialize());
+        */
     }
 
 }
