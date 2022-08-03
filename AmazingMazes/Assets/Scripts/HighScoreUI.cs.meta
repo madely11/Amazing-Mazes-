@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 79a492e458dce884ab4944410ee4c571
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - panel: {instanceID: 0}
+  - highscoreUIElementPrefab: {fileID: 6475197668388804136, guid: 19219ce90a5491a4288df9e19fece0a7,
+      type: 3}
+  - elementWrapper: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
